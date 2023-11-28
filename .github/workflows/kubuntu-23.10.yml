@@ -22,7 +22,7 @@ jobs:
     name: Version Checker
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         ref: kubuntu-23.10
 
@@ -52,7 +52,7 @@ jobs:
 
     - name: Generate Release Notes
       run: |
-        echo "Release generated for Branch: **$${{ env.BRANCH }}**" > ${{ github.workspace }}-CHANGELOG.txt
+        echo "Release generated for Branch: **${{ env.BRANCH }}**" > ${{ github.workspace }}-CHANGELOG.txt
 
     - name: Create release and upload assets
       if: steps.compare.outcome == 'success' && steps.compare.conclusion == 'success'
